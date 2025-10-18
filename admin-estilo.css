@@ -36,13 +36,13 @@ header h1 {
     margin-bottom: 5px;
 }
 
-.subtitle {
+.subtitulo {
     font-size: 16px;
     opacity: 0.9;
 }
 
-/* Container */
-.container {
+/* Contenedor */
+.contenedor {
     max-width: 1200px;
     margin: 0 auto;
     padding: 30px 20px;
@@ -50,14 +50,14 @@ header h1 {
 }
 
 /* Estadísticas */
-.stats {
+.estadisticas {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     margin-bottom: 30px;
 }
 
-.stat-card {
+.tarjeta-estadistica {
     background-color: white;
     padding: 25px;
     border-radius: 10px;
@@ -66,21 +66,21 @@ header h1 {
     border-top: 4px solid #4CAF50;
 }
 
-.stat-card h3 {
+.tarjeta-estadistica h3 {
     color: #666;
     font-size: 14px;
     margin-bottom: 10px;
     text-transform: uppercase;
 }
 
-.stat-number {
+.numero-estadistica {
     font-size: 36px;
     font-weight: bold;
     color: #4CAF50;
 }
 
 /* Filtros */
-.filters {
+.filtros {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -91,7 +91,7 @@ header h1 {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.filter-select {
+.select-filtro {
     flex: 1;
     min-width: 200px;
     padding: 12px;
@@ -103,34 +103,36 @@ header h1 {
     transition: border-color 0.3s;
 }
 
-.filter-select:focus {
+.select-filtro:focus {
     outline: none;
     border-color: #45a049;
 }
 
-/* Grid de tarjetas */
-.cards-grid {
+/* Cuadrícula de tarjetas */
+.cuadricula-tarjetas {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 25px;
 }
 
 /* Tarjeta */
-.card {
+.tarjeta {
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
-.card:hover {
+.tarjeta:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Header de tarjeta */
-.card-header {
+/* Encabezado de tarjeta */
+.encabezado-tarjeta {
     background-color: #f8f9fa;
     padding: 15px;
     display: flex;
@@ -139,7 +141,7 @@ header h1 {
     border-bottom: 2px solid #e9ecef;
 }
 
-.badge {
+.etiqueta {
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 12px;
@@ -147,49 +149,51 @@ header h1 {
     text-transform: uppercase;
 }
 
-.badge-comparsa {
+.etiqueta-comparsa {
     background-color: #4CAF50;
     color: white;
 }
 
-.badge-asociacion {
+.etiqueta-asociacion {
     background-color: #2196F3;
     color: white;
 }
 
-.date {
+.fecha {
     color: #666;
     font-size: 13px;
 }
 
-/* Body de tarjeta */
-.card-body {
+/* Cuerpo de tarjeta */
+.cuerpo-tarjeta {
     padding: 20px;
+    flex: 1;
 }
 
-.card-title {
+.titulo-tarjeta {
     color: #2d2d2d;
     font-size: 18px;
     margin-bottom: 12px;
     font-weight: bold;
 }
 
-.card-text {
+.texto-tarjeta {
     color: #555;
     line-height: 1.6;
     font-size: 14px;
 }
 
-/* Footer de tarjeta */
-.card-footer {
+/* Pie de tarjeta */
+.pie-tarjeta {
     padding: 15px;
     background-color: #f8f9fa;
     display: flex;
     gap: 10px;
     justify-content: flex-end;
+    margin-top: auto;
 }
 
-.btn-view, .btn-delete {
+.boton-ver, .boton-eliminar {
     padding: 8px 16px;
     border: none;
     border-radius: 5px;
@@ -199,21 +203,21 @@ header h1 {
     transition: background-color 0.3s;
 }
 
-.btn-view {
+.boton-ver {
     background-color: #4CAF50;
     color: white;
 }
 
-.btn-view:hover {
+.boton-ver:hover {
     background-color: #45a049;
 }
 
-.btn-delete {
+.boton-eliminar {
     background-color: #e74c3c;
     color: white;
 }
 
-.btn-delete:hover {
+.boton-eliminar:hover {
     background-color: #c0392b;
 }
 
@@ -236,23 +240,23 @@ footer p {
         font-size: 24px;
     }
 
-    .cards-grid {
+    .cuadricula-tarjetas {
         grid-template-columns: 1fr;
     }
 
-    .filters {
+    .filtros {
         flex-direction: column;
     }
 
-    .filter-select {
+    .select-filtro {
         width: 100%;
     }
 
-    .card-footer {
+    .pie-tarjeta {
         flex-direction: column;
     }
 
-    .btn-view, .btn-delete {
+    .boton-ver, .boton-eliminar {
         width: 100%;
     }
 }
