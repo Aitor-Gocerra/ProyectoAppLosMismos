@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - LOS MISMOS</title>
+    <link rel="stylesheet" href="admin-estilo.css">
+</head>
+<body>
+    <header>
+        <img src="imagenes/logo.jpeg" alt="Logo Comparsa" class="logo-admin">
+        <h1>Panel de Administración</h1>
+        <p class="subtitle">Buzón de Sugerencias</p>
+    </header>
+
+    <main class="container">
+        <!-- Estadísticas -->
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Total Sugerencias</h3>
+                <p class="stat-number">24</p>
+            </div>
+            <div class="stat-card">
+                <h3>Este Mes</h3>
+                <p class="stat-number">8</p>
+            </div>
+            <div class="stat-card">
+                <h3>Pendientes</h3>
+                <p class="stat-number">5</p>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filters">
+            <select class="filter-select">
+                <option value="">Todas las categorías</option>
+                <option value="asociacion">Asociación</option>
+                <option value="comparsa">Comparsa</option>
+            </select>
+            <select class="filter-select">
+                <option value="">Todos los temas</option>
+                <option value="normas">Normas</option>
+                <option value="convivencias">Convivencias</option>
+                <option value="baile">Baile</option>
+                <option value="musica">Música</option>
+                <option value="fiestas">Fiestas</option>
+                <option value="traje">Traje</option>
+            </select>
+        </div>
+
+        <!-- Tarjetas de Sugerencias -->
+        <div class="cards-grid">
+            
+            <!-- Tarjeta 1 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge badge-comparsa">Comparsa</span>
+                    <span class="date">18/10/2025 - 14:30</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Música</h3>
+                    <p class="card-text">
+                        Sería genial poder ensayar con música más moderna para atraer a más jóvenes. 
+                        Propongo incorporar algunas canciones actuales en los ensayos.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-view">Ver detalles</button>
+                    <button class="btn-delete">Eliminar</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge badge-asociacion">Asociación</span>
+                    <span class="date">17/10/2025 - 10:15</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Convivencias</h3>
+                    <p class="card-text">
+                        Me gustaría que organizáramos más actividades de convivencia fuera de los ensayos. 
+                        Quizás una comida o excursión mensual.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-view">Ver detalles</button>
+                    <button class="btn-delete">Eliminar</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge badge-comparsa">Comparsa</span>
+                    <span class="date">16/10/2025 - 19:45</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Baile</h3>
+                    <p class="card-text">
+                        Los pasos nuevos son un poco complicados. Sugiero hacer un video tutorial 
+                        para poder practicar en casa antes de los ensayos.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-view">Ver detalles</button>
+                    <button class="btn-delete">Eliminar</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge badge-asociacion">Asociación</span>
+                    <span class="date">15/10/2025 - 12:20</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Fiestas</h3>
+                    <p class="card-text">
+                        Para la próxima fiesta de fin de año, podríamos hacer una cena temática. 
+                        Esto haría el evento más especial y memorable.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-view">Ver detalles</button>
+                    <button class="btn-delete">Eliminar</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 5 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge badge-comparsa">Comparsa</span>
+                    <span class="date">14/10/2025 - 16:00</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Traje</h3>
+                    <p class="card-text">
+                        El traje actual es muy bonito, pero para el calor del verano sería bueno 
+                        tener una versión más ligera o con tela más fresca.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-view">Ver detalles</button>
+                    <button class="btn-delete">Eliminar</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 6 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge badge-asociacion">Asociación</span>
+                    <span class="date">13/10/2025 - 09:30</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Normas</h3>
+                    <p class="card-text">
+                        Deberíamos revisar las normas de asistencia a ensayos. Quizás establecer 
+                        un mínimo de asistencia mensual obligatoria.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-view">Ver detalles</button>
+                    <button class="btn-delete">Eliminar</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Aitor Gómez Cerrato - Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
