@@ -102,4 +102,7 @@
 
     // Cerrar conexión
         $conexion->close();
+    
+    // Nos dirigimos a nuestra pagina de inicio de phpç
+    header("Location: inicio.php");
 ?>
