@@ -13,10 +13,13 @@
         die("Error de conexión: " . $conexion->connect_error);
     }
 
-    // Consulta para obtener los temas
-    $sql = "SELECT idTema, Nombre FROM TEMAS";
-    echo $sql;
-    $resultado = $conexion->query($sql);
+    // Consulta para obtener los temas y el grupo
+    $sql1 = "SELECT idTema, Nombre FROM TEMAS";
+    echo $sql1;
+    $resultado1 = $conexion->query($sql1);
+    $sql2 = "SELECT idGrupo, Nombre FROM GRUPO";
+    echo $sql2;
+    $resultado2 = $conexion->query($sql2);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -29,24 +32,28 @@
     <body>
         <a href="admin.html" class="btn-login">Admin</a>
         <img src="imagenes/logo.jpeg" alt="Logo Comparsa"><br>
-        <form action="enviar-datos" method="POST">
+        <form action="enviar-datos.php" method="POST">
             <h1>BUZON DE SUGERENCIAS</h1>
             
             <!-- Radio buttons -->
             <label>Elige una:</label>
-            <input type="radio" id="asociacion" name="asociacion">
-            <label for="asociacion">Asociacion</label>
-            <input type="radio" id="comparsa" name="comparsa">
-            <label for="comparsa">Comparsa</label>
+            <?php
+                if ($resultado2->num_rows > 0) {
+                    while ($filaGrupo = $resultado2->fetch_row()) {
+                        echo '<input type="radio" id="grupo' . $filaGrupo[0] . '"value="' . $filaGrupo[0];
+                        echo '<label ">' . $filaGrupo[1] . '</label>';
+                    }
+                }
+            ?>
             <br>
             <!-- Select/desplegable -->
             <label for="tema">Elige el tema a tratar:</label>
             <select id="tema" name="tema">
                 <option value="">Selecciona...</option>
                 <?php
-                    // Generar opciones dinámicamente desde la base de datos
-                    if ($resultado->num_rows > 0) {
-                        while ($fila = $resultado->fetch_row()) {
+                    // Generar opciones
+                    if ($resultado1->num_rows > 0) {
+                        while ($fila = $resultado1->fetch_row()) {
                             echo '<option value="' . $fila[0] . '">' . 
                                  $fila[1] . '</option>';
                         }
