@@ -1,3 +1,23 @@
+<?php
+    // Configuración de conexión
+    $servidor = "localhost";
+    $usuario = "root";
+    $password = "";
+    $basedatos = "los_mismos";
+
+    // Crear conexión
+    $conexion = new mysqli($servidor, $usuario, $password, $basedatos);
+
+    // Verificar conexión
+    if ($conexion->connect_error) {
+        die("Error de conexión: " . $conexion->connect_error);
+    }
+
+    // Consulta para obtener los temas
+    $sql = "SELECT idTema, Nombre FROM TEMAS";
+    echo $sql;
+    $resultado = $conexion->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -9,7 +29,7 @@
     <body>
         <a href="admin.html" class="btn-login">Admin</a>
         <img src="imagenes/logo.jpeg" alt="Logo Comparsa"><br>
-        <form action="/enviar-datos" method="POST">
+        <form action="enviar-datos" method="POST">
             <h1>BUZON DE SUGERENCIAS</h1>
             
             <!-- Radio buttons -->
@@ -23,12 +43,17 @@
             <label for="tema">Elige el tema a tratar:</label>
             <select id="tema" name="tema">
                 <option value="">Selecciona...</option>
-                <option value="normas">Normas</option>
-                <option value="convivencias">Convivencias</option>
-                <option value="baile">Baile</option>
-                <option value="musica">Musica</option>
-                <option value="fiestas">Fiestas</option>
-                <option value="traje">Traje</option>
+                <?php
+                    // Generar opciones dinámicamente desde la base de datos
+                    if ($resultado->num_rows > 0) {
+                        while ($fila = $resultado->fetch_row()) {
+                            echo '<option value="' . $fila[0] . '">' . 
+                                 $fila[1] . '</option>';
+                        }
+                    } else {
+                        echo '<option value="">No hay temas disponibles</option>';
+                    }
+                ?>
             </select>
             <br>
             <!-- Área de texto -->
@@ -44,9 +69,24 @@
             <button type="submit">Enviar</button>
             <button type="reset">Borrar</button>
             
-            </form>
+        </form>
+        <?php
+            // Temas añadidos
+            $sql = "SELECT idTema, Nombre FROM TEMAS";
+            $resultado = $conexion->query($sql);
+            
+            if ($resultado->num_rows > 0) {
+                while ($fila = $resultado->fetch_row()) {
+                    echo $fila[0] . " - " . $fila[1] . "<br>";
+                }
+            }
+        ?>
         <footer>
             <p>&copy; 2025 Aitor Gómez Cerrato - Todos los derechos reservados.</p>
         </footer>
     </body>
 </html>
+<?php
+    // Cerrar conexión
+    $conexion->close();
+?>
