@@ -1,5 +1,5 @@
 <?php
-    require "confing.php";
+    include "config.php";
         
     // 1. ELIMINAR la base de datos si existe
 

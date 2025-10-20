@@ -1,5 +1,5 @@
 <?php
-    require "config.php";
+    include "config.php";
 
     // Verificar conexión
     if ($conexion->connect_error) {
