@@ -9,8 +9,8 @@
         "texto" => $_POST["mensaje"],
     ];
 
-    $sql = "INSERT INTO sugerencias (Texto) VALUES (
-        'texto'
+    $sql = "INSERT INTO sugerencias (Texto, idTema, idGrupo) VALUES (
+        '{$_datos['texto']}', {$_datos['idTema']}, {$_datos['idGrupo']}
     )";
     echo $sql;
 
