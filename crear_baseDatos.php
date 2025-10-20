@@ -98,6 +98,6 @@
     // Cerrar conexión
         $conexion->close();
     
-    // Nos dirigimos a nuestra pagina de inicio de phpç
+    // Nos dirigimos a nuestra pagina de inicio de php
     header("Location: inicio.php");
 ?>
