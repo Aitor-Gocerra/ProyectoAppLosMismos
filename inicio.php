@@ -34,7 +34,7 @@
             <?php
                 if ($resultado2->num_rows > 0) {
                     while ($filaGrupo = $resultado2->fetch_row()) {
-                        echo '<input type="radio" id="grupo' . $filaGrupo[0] . '"value="' . $filaGrupo[0];
+                        echo '<input type="radio" id="'. $filaGrupo[0] . '"name= "grupo" value="' . $filaGrupo[0] . '"';
                         echo '<label ">' . $filaGrupo[1] . '</label>';
                     }
                 }
@@ -71,6 +71,7 @@
             <button type="reset">Borrar</button>
             
         </form>
+        
         <footer>
             <p>&copy; 2025 Aitor Gómez Cerrato - Todos los derechos reservados.</p>
         </footer>
