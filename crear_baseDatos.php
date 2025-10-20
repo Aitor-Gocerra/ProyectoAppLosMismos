@@ -1,10 +1,5 @@
 <?php
-    // Configuración de conexión
-        $servidor = "localhost";
-        $usuario = "root";
-        $password = "";
-
-        $conexion = new mysqli($servidor, $usuario, $password);
+    require "confing.php";
         
     // 1. ELIMINAR la base de datos si existe
 

@@ -1,12 +1,5 @@
 <?php
-    // Configuración de conexión
-    $servidor = "localhost";
-    $usuario = "root";
-    $password = "";
-    $basedatos = "los_mismos";
-
-    // Crear conexión
-    $conexion = new mysqli($servidor, $usuario, $password, $basedatos);
+    require "config.php";
 
     // Verificar conexión
     if ($conexion->connect_error) {
