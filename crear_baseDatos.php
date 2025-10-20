@@ -67,6 +67,21 @@
             echo "Error al crear tabla SUGERENCIAS: " . $conexion->error;
         }
 
+    // 8. Crear TABLA del multivaluado
+        
+        $sql = "CREATE TABLE Contacto (
+            idSugerencia SMALLINT,
+            Contacto CHAR(20),
+            PRIMARY KEY (idSugerencia, Contacto),
+            FOREIGN KEY (idSugerencia) REFERENCES Sugerencias (idSugerencia)
+        )"; 
+
+        if ($conexion->query($sql)) {
+            echo "Tabla MULTIVALUADO creada correctamente";
+        } else {
+            echo "Error al crear tabla MULTIVALUADO: " . $conexion->error;
+        }
+            
     // 7. INSERCIÓN MASIVA - Tabla GRUPO
 
         $sql = "INSERT INTO GRUPO (Nombre) VALUES 

@@ -62,6 +62,13 @@
             <textarea id="mensaje" name="mensaje" rows="4"></textarea>
             <br>
             <!-- Checkbox -->
+            <label for="contacto">¿Como nos conociste?</label>
+            <div id="contacto">
+                <input type="checkbox" name="contacto[]" value="youtube"><label>Youtube</label>
+                <input type="checkbox" name="contacto[]" value="amigo"><label>Amigo</label>
+                <input type="checkbox" name="contacto[]" value="revista"><label>Revista</label>
+                <input type="checkbox" name="contacto[]" value="internet"><label>Internet</label>
+            </div>
             <input type="checkbox" id="acepto" name="acepto" required>
             <label for="acepto">Acepto terminos y condiciones.</label>
             <p id="terminos">*La comparsa tratara sus datos de manera interna, protegiendolos y solo para uso informativo.</p>

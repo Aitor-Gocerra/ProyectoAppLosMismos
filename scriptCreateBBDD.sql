@@ -16,13 +16,21 @@ CREATE TABLE Grupo (
 
 -- Tabla SUGERENCIAS
 CREATE TABLE Sugerencias (
-    idSugerencia INT AUTO_INCREMENT PRIMARY KEY,
+    idSugerencia SMALLINT AUTO_INCREMENT PRIMARY KEY,
     Texto VARCHAR(500) NOT NULL,
     Fecha DATETIME NOT NULL,
     idTema TINYINT UNSIGNED NOT NULL,
     idGrupo TINYINT UNSIGNED NOT NULL,
     FOREIGN KEY (idTema) REFERENCES TEMAS(idTema),
     FOREIGN KEY (idGrupo) REFERENCES GRUPO(idGrupo)
+);
+
+-- Tabla Multivaluado CONTACTO
+CREATE TABLE Contacto (
+    idSugerencia SMALLINT,
+    Contacto CHAR(20),
+    PRIMARY KEY (idSugerencia, Contacto),
+    FOREIGN KEY (idSugerencia) REFERENCES Sugerencias (idSugerencia)
 );
 
 -- Insertar datos en la tabla GRUPO
