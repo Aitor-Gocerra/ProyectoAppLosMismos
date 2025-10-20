@@ -1,5 +1,6 @@
 <?php
     require "config.php";
+    $conexion->select_db("los_mismos");
 
     // Verificar conexión
     if ($conexion->connect_error) {

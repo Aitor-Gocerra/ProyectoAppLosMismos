@@ -1,4 +1,6 @@
 <?php
+    require "config.php";
+    
     // Temas añadidos
     $sql = "SELECT idTema, Nombre FROM TEMAS";
     $resultado = $conexion->query($sql);
