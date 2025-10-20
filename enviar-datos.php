@@ -3,7 +3,7 @@
         "idTema" => $_POST["tema"],
         "idGrupo" => $_POST["grupo"],
         "texto" => $_POST["mensaje"],
-        "fecha" => new Date(),
+        "fecha" => new DATETIME(),
     ];
 
     $sql = "INSERT INTO sugerencias (texto, fecha) VALUES (
