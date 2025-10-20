@@ -54,7 +54,7 @@
         $sql = "CREATE TABLE SUGERENCIAS (
             idSugerencia INT AUTO_INCREMENT PRIMARY KEY,
             Texto VARCHAR(250) NOT NULL,
-            Fecha DATETIME NOT NULL,
+            Fecha DATETIME NOT NULL DEFAULT GETDATE(),
             idTema TINYINT UNSIGNED NOT NULL,
             idGrupo TINYINT UNSIGNED NOT NULL,
             FOREIGN KEY (idTema) REFERENCES TEMAS(idTema),
