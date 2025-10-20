@@ -54,7 +54,7 @@
         $sql = "CREATE TABLE SUGERENCIAS (
             idSugerencia INT AUTO_INCREMENT PRIMARY KEY,
             Texto VARCHAR(250) NOT NULL,
-            Fecha DATETIME NOT NULL DEFAULT GETDATE(),
+            Fecha DATETIME NOT NULL DEFAULT NOW(),
             idTema TINYINT UNSIGNED NOT NULL,
             idGrupo TINYINT UNSIGNED NOT NULL,
             FOREIGN KEY (idTema) REFERENCES TEMAS(idTema),
@@ -69,8 +69,8 @@
 
     // 8. Crear TABLA del multivaluado
         
-        $sql = "CREATE TABLE Contacto (
-            idSugerencia SMALLINT,
+        $sql = "CREATE TABLE CONTACTO (
+            idSugerencia INT,
             Contacto CHAR(20),
             PRIMARY KEY (idSugerencia, Contacto),
             FOREIGN KEY (idSugerencia) REFERENCES Sugerencias (idSugerencia)
