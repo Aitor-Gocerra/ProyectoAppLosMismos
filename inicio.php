@@ -70,17 +70,6 @@
             <button type="reset">Borrar</button>
             
         </form>
-        <?php
-            // Temas añadidos
-            $sql = "SELECT idTema, Nombre FROM TEMAS";
-            $resultado = $conexion->query($sql);
-            
-            if ($resultado->num_rows > 0) {
-                while ($fila = $resultado->fetch_row()) {
-                    echo $fila[0] . " - " . $fila[1] . "<br>";
-                }
-            }
-        ?>
         <footer>
             <p>&copy; 2025 Aitor Gómez Cerrato - Todos los derechos reservados.</p>
         </footer>
