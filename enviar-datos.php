@@ -27,12 +27,10 @@
     sido añadido para coger dicho ID y junto con cada elemento de
     array contacto[] guardarlo en mi tabla del multivaluado */
 
-    $idSugerencia = $conexion -> insert_id;
-
     if(!empty($_datos['contacto'])){
-        foreach($_datos['contacto'] as $contacto){
-            $sqlContacto = "INSERT INTO Contacto (idSugerencia, Contacto) VALUES (
-                    {$idSugerencia}, '{$contacto}'
+        foreach($_datos['contacto'] as $clave => $valor){
+            $sqlContacto = "INSERT INTO SUGERENCIA_CONTACTO (idSugerencia, idContacto) VALUES (
+                    {$clave}, '{$valor}'
                 )";
             echo $sqlContacto;
 

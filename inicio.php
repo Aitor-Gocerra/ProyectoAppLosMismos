@@ -15,7 +15,8 @@
     echo $sql2;
     $resultado2 = $conexion->query($sql2);
     $sql3 = "SELECT idContacto, Nombre FROM CONTACTO";
-    $resultado3 = $conexion_>query($sql3);
+    echo $sql3;
+    $resultado3 = $conexion->query($sql3);
 ?>
 <!DOCTYPE html>
 <html lang="es">
