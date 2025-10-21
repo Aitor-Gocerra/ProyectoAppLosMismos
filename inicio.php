@@ -14,6 +14,8 @@
     $sql2 = "SELECT idGrupo, Nombre FROM GRUPO";
     echo $sql2;
     $resultado2 = $conexion->query($sql2);
+    $sql3 = "SELECT idContacto, Nombre FROM CONTACTO";
+    $resultado3 = $conexion_>query($sql3);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -64,10 +66,17 @@
             <!-- Checkbox -->
             <label for="contacto">¿Como nos conociste?</label>
             <div id="contacto">
-                <input type="checkbox" name="contacto[]" value="youtube"><label>Youtube</label>
+                <?php 
+                    if($resultado3->num_rows > 0){
+                        while($fila = $resultado3->fetch_row()){
+                            echo '<input type="checkbox" name="contacto[]" value="' . $fila[0] . '"><label>' .$fila[1]. '</label>';
+                        }
+                    }
+                ?>
+                <!-- <input type="checkbox" name="contacto[]" value="youtube"><label>Youtube</label>
                 <input type="checkbox" name="contacto[]" value="amigo"><label>Amigo</label>
                 <input type="checkbox" name="contacto[]" value="revista"><label>Revista</label>
-                <input type="checkbox" name="contacto[]" value="internet"><label>Internet</label>
+                <input type="checkbox" name="contacto[]" value="internet"><label>Internet</label> -->
             </div>
             <input type="checkbox" id="acepto" name="acepto" required>
             <label for="acepto">Acepto terminos y condiciones.</label>
@@ -78,7 +87,6 @@
             <button type="reset">Borrar</button>
             
         </form>
-        
         <footer>
             <p>&copy; 2025 Aitor Gómez Cerrato - Todos los derechos reservados.</p>
         </footer>

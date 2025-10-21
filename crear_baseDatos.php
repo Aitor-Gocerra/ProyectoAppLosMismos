@@ -67,22 +67,35 @@
             echo "Error al crear tabla SUGERENCIAS: " . $conexion->error;
         }
 
-    // 8. Crear TABLA del multivaluado
-        
+    // 7. Crear TABLA de la tabla CONTACTO
+
         $sql = "CREATE TABLE CONTACTO (
+            idContacto SMALLINT UNSIGNED PRIMARY KEY,
+            Nombre CHAR(20) NOT NULL
+        )";
+
+        if ($conexion->query($sql)) {
+            echo "Tabla GRUPO creada correctamente";
+        } else {
+            echo "Error al crear tabla GRUPO: " . $conexion->error;
+        }
+
+    // 8. Crear TABLA del INTERMEDIA SUGERENCIAS_CONTACTO
+        
+        $sql = "CREATE TABLE SUGERENCIA_CONTACTO (
             idSugerencia INT,
-            Contacto CHAR(20),
-            PRIMARY KEY (idSugerencia, Contacto),
+            idContacto SMALLINT UNSIGNED,
+            PRIMARY KEY (idSugerencia, idContacto),
             FOREIGN KEY (idSugerencia) REFERENCES Sugerencias (idSugerencia)
         )"; 
 
         if ($conexion->query($sql)) {
-            echo "Tabla MULTIVALUADO creada correctamente";
+            echo "Tabla SUGERENCIAS_CONTACTO creada correctamente";
         } else {
-            echo "Error al crear tabla MULTIVALUADO: " . $conexion->error;
+            echo "Error al crear tabla SUGERENCIAS_CONTACTO: " . $conexion->error;
         }
             
-    // 7. INSERCIÓN MASIVA - Tabla GRUPO
+    // 9. INSERCIÓN MASIVA - Tabla GRUPO
 
         $sql = "INSERT INTO GRUPO (Nombre) VALUES 
                 ('Asociacion'),
@@ -94,7 +107,7 @@
             echo "Error al insertar grupos: " . $conexion->error;
         }
 
-    // 8. INSERCIÓN MASIVA - Tabla TEMAS
+    // 10. INSERCIÓN MASIVA - Tabla TEMAS
 
         $sql = "INSERT INTO TEMAS (Nombre) VALUES 
                 ('Fiesta'),
@@ -109,6 +122,21 @@
         } else {
             echo "Error al insertar temas: " . $conexion->error;
         }
+    
+    // 10. INSERCIÓN MASIVA - Tabla TEMAS
+
+    $sql = "INSERT INTO CONTACTO (Nombre) VALUES 
+            ('Youtube'),
+            ('Amigo'),
+            ('Revista'),
+            ('Internet')";
+
+    if ($conexion->query($sql)) {
+        echo "Temas insertados correctamente";
+    } else {
+        echo "Error al insertar temas: " . $conexion->error;
+    }
+    
 
     // Cerrar conexión
         $conexion->close();
