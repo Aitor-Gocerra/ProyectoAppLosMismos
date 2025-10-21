@@ -75,9 +75,9 @@
         )";
 
         if ($conexion->query($sql)) {
-            echo "Tabla GRUPO creada correctamente";
+            echo "Tabla CONTACTO creada correctamente";
         } else {
-            echo "Error al crear tabla GRUPO: " . $conexion->error;
+            echo "Error al crear tabla CONTACTO: " . $conexion->error;
         }
 
     // 8. Crear TABLA del INTERMEDIA SUGERENCIAS_CONTACTO
