@@ -70,7 +70,7 @@
     // 7. Crear TABLA de la tabla CONTACTO
 
         $sql = "CREATE TABLE CONTACTO (
-            idContacto SMALLINT UNSIGNED PRIMARY KEY,
+            idContacto SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
             Nombre CHAR(20) NOT NULL
         )";
 
@@ -125,17 +125,17 @@
     
     // 10. INSERCIÓN MASIVA - Tabla TEMAS
 
-    $sql = "INSERT INTO CONTACTO (Nombre) VALUES 
+        $sql = "INSERT INTO CONTACTO (Nombre) VALUES 
             ('Youtube'),
             ('Amigo'),
             ('Revista'),
             ('Internet')";
 
-    if ($conexion->query($sql)) {
-        echo "Temas insertados correctamente";
-    } else {
-        echo "Error al insertar temas: " . $conexion->error;
-    }
+        if ($conexion->query($sql)) {
+            echo "Temas insertados correctamente";
+        } else {
+            echo "Error al insertar temas: " . $conexion->error;
+        }
     
 
     // Cerrar conexión
