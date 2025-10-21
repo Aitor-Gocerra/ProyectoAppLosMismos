@@ -64,6 +64,9 @@
             <label for="mensaje">Sugerencia:</label><br>
             <textarea id="mensaje" name="mensaje" rows="4"></textarea>
             <br>
+            <!-- Email opcional -->
+            <label for="email">Email de contacto (opcional):</label><br>
+            <input type="email" id="email" name="email" placeholder="ejemplo@correo.com">
             <!-- Checkbox -->
             <label for="contacto">¿Como nos conociste?</label>
             <div id="contacto">

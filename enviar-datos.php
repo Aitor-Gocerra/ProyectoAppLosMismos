@@ -3,16 +3,22 @@
     require "config.php";
     $conexion->select_db("los_mismos");
 
-    $_datos = [
-        "idTema" => $_POST["tema"],
-        "idGrupo" => $_POST["grupo"],
-        "texto" => $_POST["mensaje"],
-        "contacto" => $_POST["contacto"]
-    ];
+    //Verificar que existan los datos obligatorios
+    if (!isset($_POST["tema"]) || !isset($_POST["grupo"]) || !isset($_POST["mensaje"])) {
+        die("Error: Faltan datos obligatorios");
+    }
 
-    $sql = "INSERT INTO sugerencias (Texto, idTema, idGrupo) VALUES (
-        '{$_datos['texto']}', {$_datos['idTema']}, {$_datos['idGrupo']}
-    )";
+    $idTema = $_POST["tema"];
+    $idGrupo = $_POST["grupo"];
+    $texto = $_POST["mensaje"];
+
+    if(isset($_POST["email"]) && $_POST["email"] != ""){
+        $email = "'{$_POST["email"]}'";  // Con comillas porque es VARCHAR
+    } else {
+        $email = "NULL";  // Sin comillas porque NULL no es texto
+    }
+
+    $sql = "INSERT INTO sugerencias (Texto, Email, idTema, idGrupo) VALUES ('{$texto}',{$email}, {$idTema}, {$idGrupo})";
     echo $sql;
 
     $resultado = $conexion->query($sql);
@@ -28,27 +34,24 @@
     array contacto[] guardarlo en mi tabla del multivaluado */
 
     $ultimoId = $conexion -> insert_id;
+    if(isset($_POST["contacto"]) && !empty($_POST["contacto"])){
+        $contactos = $_POST["contacto"];
 
-    if(!empty($_datos['contacto'])){
-        
-        foreach($_datos['contacto'] as $idContacto){
-            $sqlContacto = "INSERT INTO SUGERENCIA_CONTACTO (idSugerencia, idContacto) VALUES (
-                {$ultimoId}, {$idContacto}
-            )";
+        foreach($contactos as $idContacto){
+            $sqlContacto = "INSERT INTO SUGERENCIA_CONTACTO (idSugerencia, idContacto) VALUES ({$ultimoId}, {$idContacto})";
             
-            echo $sqlContacto;
-
             $resultadoContacto = $conexion->query($sqlContacto);
-
+            
             if($resultadoContacto){
-                echo "Contacto registrado correctamente";
-            }else{
-                echo "ERROR" . $conexion->error;
+                echo "Contacto registrado correctamente<br>";
+            } else {
+                echo "ERROR al registrar contacto: " . $conexion->error . "<br>";
             }
         }
     }else{
         echo "No se ha seleccionado ningun medio de contacto";
     }
+
 
     $conexion->close();
 
