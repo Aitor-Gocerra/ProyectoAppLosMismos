@@ -9,13 +9,13 @@
 
     // Consulta para obtener los temas y el grupo
     $sql1 = "SELECT idTema, Nombre FROM TEMAS";
-    echo $sql1;
+    //echo $sql1;
     $resultado1 = $conexion->query($sql1);
     $sql2 = "SELECT idGrupo, Nombre FROM GRUPO";
-    echo $sql2;
+    //echo $sql2;
     $resultado2 = $conexion->query($sql2);
     $sql3 = "SELECT idContacto, Nombre FROM CONTACTO";
-    echo $sql3;
+    //echo $sql3;
     $resultado3 = $conexion->query($sql3);
 ?>
 <!DOCTYPE html>
@@ -27,7 +27,7 @@
         <link rel="stylesheet" href="estilo.css">
     </head>
     <body>
-        <a href="admin.html" class="btn-login">Admin</a>
+        <a href="admin.php" class="btn-login">Admin</a>
         <img src="imagenes/logo.jpeg" alt="Logo Comparsa"><br>
         <form action="enviar-datos.php" method="POST">
             <h1>BUZON DE SUGERENCIAS</h1>
@@ -65,8 +65,8 @@
             <textarea id="mensaje" name="mensaje" rows="4"></textarea>
             <br>
             <!-- Email opcional -->
-            <label for="email">Email de contacto (opcional):</label><br>
-            <input type="email" id="email" name="email" placeholder="ejemplo@correo.com">
+            <label for="email">Email de contacto (opcional):</label>
+            <input type="email" id="email" name="email" placeholder="ejemplo@correo.com"><br>
             <!-- Checkbox -->
             <label for="contacto">¿Como nos conociste?</label>
             <div id="contacto">

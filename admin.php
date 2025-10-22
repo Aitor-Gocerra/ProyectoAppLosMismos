@@ -3,18 +3,13 @@
     $conexion->select_db("los_mismos");
 
     // Obtener todas las sugerencias
-    $sql = "SELECT sugerencia.idSugerencia, sugerencia.Texto, sugerencia.Email, sugerencia.Fecha, 
-                   tema.Nombre as Tema, grupo.Nombre as Grupo
-            FROM SUGERENCIAS
-            INNER JOIN TEMAS ON sugerencia.idTema = tema.idTema
-            INNER JOIN GRUPO ON sugerencia.idGrupo = grupo.idGrupo
-            ORDER BY sugerencia.Fecha DESC";
+    $sql = "SELECT SUGERENCIAS.idSugerencia, SUGERENCIAS.Texto, SUGERENCIAS.Email, SUGERENCIAS.Fecha, TEMAS.Nombre as Tema, GRUPO.Nombre as Grupo
+                FROM SUGERENCIAS
+                INNER JOIN TEMAS ON SUGERENCIAS.idTema = TEMAS.idTema
+                INNER JOIN GRUPO ON SUGERENCIAS.idGrupo = GRUPO.idGrupo
+                ORDER BY SUGERENCIAS.Fecha DESC";
     
     $resultado = $conexion->query($sql);
-
-    // Contar total
-    $sqlTotal = "SELECT COUNT(*) as total FROM SUGERENCIAS";
-    $resultadoTotal = $conexion->query($sqlTotal);
 
 ?>
 <!DOCTYPE html>
