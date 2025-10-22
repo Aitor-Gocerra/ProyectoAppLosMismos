@@ -34,6 +34,7 @@
     array contacto[] guardarlo en mi tabla del multivaluado */
 
     $ultimoId = $conexion -> insert_id;
+    
     if(isset($_POST["contacto"]) && !empty($_POST["contacto"])){
         $contactos = $_POST["contacto"];
 
