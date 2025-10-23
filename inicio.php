@@ -67,6 +67,9 @@
             <!-- Email opcional -->
             <label for="email">Email de contacto (opcional):</label>
             <input type="email" id="email" name="email" placeholder="ejemplo@correo.com"><br>
+            <!-- Email opcional -->
+            <label for="email">Telefono:</label>
+            <input type="tel" id="telefono" name="telefono"><br>
             <!-- Checkbox -->
             <label for="contacto">¿Como nos conociste?</label>
             <div id="contacto">

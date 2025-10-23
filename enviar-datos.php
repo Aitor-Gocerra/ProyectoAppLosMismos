@@ -4,8 +4,12 @@
     $conexion->select_db("los_mismos");
 
     //Verificar que existan los datos obligatorios
-    if (!isset($_POST["tema"]) || !isset($_POST["grupo"]) || !isset($_POST["mensaje"])) {
+    if (!isset($_POST["tema"]) || !isset($_POST["grupo"]) || !isset($_POST["mensaje"]) || !isset($_POST["telefono"])) {
         die("Error: Faltan datos obligatorios");
+    }
+    $sqlTelefono = "SELECT Telefono FROM SUGERENCIAS WHERE telefono == '{$_POST['telefono']'";
+    if($sqlTelefono->num_rows > 0){
+        die("Error: Numero de telefono repetido");
     }
 
     $idTema = $_POST["tema"];
