@@ -11,6 +11,12 @@
     
     $resultado = $conexion->query($sql);
 
+    $numFilas = $resultado->num_rows;
+
+    // Contar las sugerencias
+    // ?? con una funcion de agregado COUNT
+    // o con un $resultado.lenght???
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -23,9 +29,14 @@
 <body>
     <div class="contenedor">
         <a href="inicio.php" class="btn-volver">← Volver</a>
-        
-        <h1>Panel de Administración</h1>
 
+        <div id="cabecera">
+            <h1>Panel de Administración</h1>
+            <?php 
+                echo "<h3>{$numFilas} sugerencias<h3>";
+            ?>
+        </div>
+        
         <table>
             <thead>
                 <tr>
