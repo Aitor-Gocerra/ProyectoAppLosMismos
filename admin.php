@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="estiloAdmin.css">
 </head>
 <body>
-    <div class="container">
+    <div class="contenedor">
         <a href="inicio.php" class="btn-volver">← Volver</a>
         
         <h1>Panel de Administración</h1>
