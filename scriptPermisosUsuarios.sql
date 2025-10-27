@@ -17,10 +17,10 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON los_mismos.* TO 'usuario_app'@'localhost
 GRANT SELECT ON los_mismos.* TO 'lector_app'@'localhost';
 
 -- Permisos sobre tabla específica
-GRANT SELECT, INSERT ON bbdd.tabla TO 'usuario'@'localhost';
+GRANT SELECT, INSERT ON los_mismos.temas TO 'usuario_app'@'localhost';
 
 -- Permisos sobre columnas específicas
-GRANT SELECT (columna, columna) ON bbdd.tabla TO 'usuario'@'localhost';
+GRANT SELECT (columna, columna) ON los_mismos.tabla TO 'usuario_app'@'localhost';
 
 -- Aplicar los cambios
 FLUSH PRIVILEGES;
