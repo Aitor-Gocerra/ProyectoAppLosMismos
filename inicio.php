@@ -1,6 +1,6 @@
 <?php
     require "config.php";
-    $conexion->select_db("los_mismos");
+    $conexion = new mysqli(servidor, usuario, password, nombreBD);
 
     // Verificar conexión
     if ($conexion->connect_error) {

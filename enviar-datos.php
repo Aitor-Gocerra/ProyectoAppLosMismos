@@ -1,7 +1,7 @@
 <?php
 
     require "config.php";
-    $conexion->select_db("los_mismos");
+    $conexion = new mysqli(servidor, usuario, password, nombreBD);
 
     //Verificar que existan los datos obligatorios
     if (!isset($_POST["tema"]) || !isset($_POST["grupo"]) || !isset($_POST["mensaje"]) || !isset($_POST["telefono"])) {

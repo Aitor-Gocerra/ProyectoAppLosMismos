@@ -1,6 +1,6 @@
 <?php
     require "config.php";
-    $conexion->select_db("los_mismos");
+    $conexion = new mysqli(servidor, usuario, password, nombreBD);
     
     // Temas añadidos
     $sql = "SELECT idTema, Nombre FROM TEMAS";

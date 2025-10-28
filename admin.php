@@ -1,6 +1,7 @@
 <?php
     require "config.php";
-    $conexion->select_db("los_mismos");
+
+    $conexion = new mysqli(servidor, usuario, password, nombreBD);
 
     // Obtener todas las sugerencias
     $sql = "SELECT SUGERENCIAS.idSugerencia, SUGERENCIAS.Texto, SUGERENCIAS.Email, SUGERENCIAS.Fecha, TEMAS.Nombre as Tema, GRUPO.Nombre as Grupo
