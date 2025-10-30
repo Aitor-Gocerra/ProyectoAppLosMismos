@@ -1,6 +1,7 @@
 <?php
     require "config.php";
-        
+    $conexion = new mysqli(servidor, usuario, password, nombreBD);
+
     // 1. ELIMINAR la base de datos si existe
 
         $sql = "DROP DATABASE IF EXISTS los_mismos";
@@ -13,7 +14,7 @@
 
     // 2. CREAR la base de datos
 
-        $sql = "CREATE DATABASE los_mismos ";
+        $sql = "CREATE DATABASE los_mismos";
         if ($conexion->query($sql)) {
             echo "Base de datos creada correctamente";
         } else {
