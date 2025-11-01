@@ -7,8 +7,9 @@
     if (!isset($_POST["tema"]) || !isset($_POST["grupo"]) || !isset($_POST["mensaje"]) || !isset($_POST["telefono"])) {
         die("Error: Faltan datos obligatorios");
     }
-    $sqlTelefono = "SELECT Telefono FROM SUGERENCIAS WHERE telefono == '{$_POST['telefono']'";
-    if($sqlTelefono->num_rows > 0){
+    $sqlTelefono = "SELECT Telefono FROM SUGERENCIAS WHERE telefono == '{$_POST['telefono']}'";
+    $resultadoTelefono = $conexion->query($sqlTelefono);
+    if($resultadoTelefono->num_rows > 0){
         die("Error: Numero de telefono repetido");
     }
 
